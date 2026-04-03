@@ -2,7 +2,7 @@
 
 **ThadMob — Youth Soccer Team Management**
 
-*Last updated: March 31, 2026*
+*Last updated: April 3, 2026*
 
 ## Data We Collect
 
@@ -10,7 +10,7 @@ ThadMob collects the following data to provide its core functionality:
 
 - **Account information** — Email address used for Firebase Authentication sign-in.
 - **Team data** — Player names, match results, ratings, goals, and other team management data you enter into the app. This is stored in Google Firebase Firestore.
-- **GPS data** — Workout route data imported from Apple Watch (via HealthKit) or Garmin GPX files, used to generate match heatmaps. This data is only collected when you explicitly choose to import it.
+- **GPS data** — Workout route data imported from Apple Watch (via HealthKit) or Garmin FIT files, used to generate match heatmaps. This data is only collected when you explicitly choose to import it.
 - **Profile photos** — Optional player and team photos, stored in Firebase Storage.
 
 ## How We Use Your Data
@@ -25,11 +25,17 @@ All data is used solely to provide the app's team management features. We do not
 
 ## HealthKit
 
-ThadMob reads workout routes from Apple Health to generate GPS heatmaps. This data is not stored on any external server beyond what you choose to save to your team's Firestore database. ThadMob does not write data to Apple Health.
+ThadMob reads workout routes from Apple Health to generate GPS heatmaps. Specifically, ThadMob requests read-only access to workout routes and walking/running distance data. This data is not shared with any third party for advertising, data mining, or any purpose other than providing the app's heatmap feature. ThadMob does not write data to Apple Health.
+
+HealthKit data that you choose to import is stored in your team's Firebase Firestore database as processed GPS coordinates for heatmap generation.
+
+## Account Deletion
+
+You can delete your account directly within the app from the More screen. Account deletion permanently removes your Firebase Authentication account and removes you from your team. Team management data (match results, player statistics) is retained as part of the team's historical records.
 
 ## Data Retention
 
-Your data is retained in Firebase for as long as your team exists in the app. You can request deletion by contacting us via the support page.
+Your data is retained in Firebase for as long as your team exists in the app. You can delete your account at any time from within the app. For additional data requests, contact us via the support page.
 
 ## Contact
 
